@@ -6,7 +6,8 @@ from django.contrib.auth.decorators import login_required
 
 
 def home(request):
-    return render(request, 'users/home.html')
+    # return render(request, 'users/home.html')
+    return redirect('users:profile')
 
 
 def register(request):
@@ -15,7 +16,8 @@ def register(request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            messages.success(request, f'Hi {username}, your account was created successfully')
+            messages.success(
+                request, f'Hi {username}, your account was created successfully')
             return redirect('home')
     else:
         form = UserRegisterForm()

@@ -1,23 +1,59 @@
-
 {% extends 'users/base.html' %}
 {% load crispy_forms_tags %}
 {% load static %}
 
 {% block content %}
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
-    <div class="container" style="margin-top: 30px;">
-    <form action="" method="POST">
-      {% csrf_token %}
-      <fieldset class="form-group">
-          <legend class="border-bottom mb-4" style="color: white;">Sign In Now</legend>
-          {{ form|crispy }}
-      </fieldset>
-      <div class="form-group" id="signup-button">
-          <button class="btn ">Sign In</button>
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+<div class="container">
+  <section class="gradient-custom">
+    <div class=" py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card bg-dark text-white" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
+              <form id="authstyle" action="" method="POST">
+                {% csrf_token %}
+                <div class="logindiv">
+                  <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+                  <p class="text-white-50 mb-3">Please enter your login and password!</p>
+
+                  {% comment %} <form action="" method="POST">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+
+                      {{ form|crispy }}
+                    </fieldset>
+                  </form> {% endcomment %}
+
+                  <div class="form-outline form-white mb-3">
+                    <input type="text" id="typeUsername" class="form-control form-control-lg" />
+                    <label class="form-label" for="typeUsername">Username</label>
+                  </div>
+
+                  <div class="form-outline form-white mb-3">
+                    <input type="password" id="typePasswordX" class="form-control form-control-lg" />
+                    <label class="form-label" for="typePasswordX">Password</label>
+                  </div>
+
+                  <p class="small pb-lg-2"><a class="text-white-50  header-links-text" href="#!">Forgot password?</a>
+                  </p>
+
+                  <button class="btn btn-outline-light btn-lg px-5 header-links" type="submit">Login</button>
+
+                </div>
+
+                <div class="logindiv mt-4">
+                  <p class="mb-0">Don't have an account? <a href="{% url 'users:register' %}"
+                      class="small pb-lg-2 text-white-50 fw-bold header-links-text" type="submit"> Sign Up
+                    </a>
+                  </p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-          <small class="text-muted ml-3" >Don't have an account yet? <a href="{% url 'register' %}">Sign Up Today</a></small>
-      </div>
-    </form>
     </div>
+  </section>
+</div>
 {% endblock %}</title>
