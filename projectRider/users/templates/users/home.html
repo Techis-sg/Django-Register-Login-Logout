@@ -1,0 +1,49 @@
+{% extends 'users/base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+<div class="container">
+  <section class="gradient-custom">
+    <div class=" py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card bg-dark text-white" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
+              <form id="authstyle">
+                <div class="logindiv">
+                  <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+                  <p class="text-white-50 mb-3">Please enter your login and password!</p>
+
+                  <div class="form-outline form-white mb-3">
+                    <input type="email" id="typeEmailX" class="form-control form-control-lg" />
+                    <label class="form-label" for="typeEmailX">Email</label>
+                  </div>
+
+                  <div class="form-outline form-white mb-3">
+                    <input type="password" id="typePasswordX" class="form-control form-control-lg" />
+                    <label class="form-label" for="typePasswordX">Password</label>
+                  </div>
+
+                  <p class="small pb-lg-2"><a class="text-white-50  header-links-text" href="#!">Forgot password?</a>
+                  </p>
+
+                  <a href="{% url 'login' %}" class="btn btn-outline-light btn-lg px-5 header-links"
+                    type="submit">Login</a>
+
+                </div>
+
+                <div class="logindiv mt-4">
+                  <p class="mb-0">Don't have an account? <a href="{% url 'register' %}"
+                      class="small pb-lg-2 text-white-50 fw-bold header-links-text" type="submit"> Sign Up
+                    </a>
+                  </p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock content %}
